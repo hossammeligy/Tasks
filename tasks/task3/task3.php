@@ -2,7 +2,7 @@
     <form action="task3-submit.php" method="POST">
 <!--input -->
         <label for="fname">Full Name:</label><br>
-        <input type="text" id="fname" name="fname" required><br>
+        <input type="text" id="username" name="username" required><br>
         <br>************</br>
 <!-- email -->
         <label for="email">Email:</label><br>
