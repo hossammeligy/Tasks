@@ -1,10 +1,17 @@
 <?php
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      
 
         var_dump($_POST);
 
         $errors = [];
+        session_start();
+        $_SESSION['name'] = $_POST['username'];
+        $_SESSION['email'];
+        $_SESSION['phone'];
+        $_SESSION['gender'];
+    
 
         if (empty($_POST['username'])) {
             $errors['username'] = 'User name is required';
@@ -35,13 +42,20 @@
         if (empty($_POST['gender'])) {
             $errors['gender'] = 'Gender is required';
         }
+        if (empty($errors)){
+            header("Location: http://localhost:8080/backend/tasks/task4/registrationform/registrationformcopy.php");
+            
+            exit();
+        }
+        
     }
+
     ?>
     <html>
     <body>
         <form method="POST">
             <label>User name:</label>
-            <input name="username">
+            <input name="username" >
             <span style="color: red"><?= isset($errors['username']) ? $errors['username'] : '' ?></span>
             <br>
             <br>
