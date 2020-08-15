@@ -1,12 +1,12 @@
 <html>
     <form action="login2.php" method="POST">
         <label>Email:</label>
-            <input name="email" type="email">
+            <input name="email" type="email" required>
             <span style="color: red"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
             <br>
                 
         <label>Password:</label>
-            <input name="password" type="password">
+            <input name="password" type="password" required>
             <span style="color: red"><?= isset($errors['password']) ? $errors['password'] : '' ?></span>
             <br>
             <br>
