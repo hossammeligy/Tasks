@@ -8,6 +8,7 @@ class shape{
     public function __construct($length, $width){
         $this->length=$length;
         $this->width=$width;
+        $this->id=rand(1,100);
     }
     function setName($name){
         $this->name=$name;
@@ -41,7 +42,7 @@ class shape{
     }
     public function getFullDescription(){
         if (self::SHAPE_TYPE == 1 || self::SHAPE_TYPE == 2)
-        return "Shape<id>:" . " " . $this->name . " " . $this->length ."x". $this->width ;
+        return "Shape<$id>:" . " " . $this->name . " " . $this->length ."x". $this->width ;
         if(self::SHAPE_TYPE==3)
         return "Circle<$id>: $name - $radius";
     }
