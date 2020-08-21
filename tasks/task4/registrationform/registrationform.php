@@ -8,9 +8,9 @@
         $errors = [];
         session_start();
         $_SESSION['name'] = $_POST['username'];
-        $_SESSION['email'];
-        $_SESSION['phone'];
-        $_SESSION['gender'];
+        $_SESSION['email'] =$_POST['email'];
+        $_SESSION['phone']= $_POST['phone'];
+        $_SESSION['gender']=$_POST['gender'];
     
 
         if (empty($_POST['username'])) {
@@ -55,17 +55,17 @@
     <body>
         <form method="POST">
             <label>User name:</label>
-            <input name="username" >
+            <input name = "username" value="<?= isset($username) ? $username : '' ?>">
             <span style="color: red"><?= isset($errors['username']) ? $errors['username'] : '' ?></span>
             <br>
             <br>
             <label>Email:</label>
-            <input name="email" type="email">
+            <input name = "email" value="<?= isset($email) ? $email : '' ?>">
             <span style="color: red"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
             <br>
             <br>
             <label>Phone Number:</label>
-            <input name="phone">
+            <input name = "phone" value="<?= isset($phone) ? $phone : '' ?>">
             <span style="color: red"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
             <br>
             <br>
