@@ -20,10 +20,10 @@ public function __call($name,$arguments){
                 return $this->length * $this->width;
             break;
             case 3:
-                return pi()*($radius^2);
+                return pi()*($this->radius^2);
             break;
             default:
-            return idk;
+            return "idk";
         }
     }
 }

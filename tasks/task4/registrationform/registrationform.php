@@ -5,7 +5,7 @@
 
         var_dump($_POST);
 
-        $errors = [];
+        $errors = [];     
         session_start();
         $_SESSION['name'] = $_POST['username'];
         $_SESSION['email'] =$_POST['email'];

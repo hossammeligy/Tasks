@@ -29,10 +29,10 @@ class shape{
                     return $this->length * $this->width;
                 break;
                 case 3:
-                    return pi()*($radius^2);
+                    return pi()*($this->radius^2);
                 break;
                 default:
-                return idk;
+                return "idk";
             }
         }
     }
@@ -42,9 +42,9 @@ class shape{
     }
     public function getFullDescription(){
         if (self::SHAPE_TYPE == 1 || self::SHAPE_TYPE == 2)
-        return "Shape<$id>:" . " " . $this->name . " " . $this->length ."x". $this->width ;
+        return "Shape<$this->id>:" . " " . $this->name . " " . $this->length ."x". $this->width ;
         if(self::SHAPE_TYPE==3)
-        return "Circle<$id>: $name - $radius";
+        return "Circle<$this->id>: $this->name - $this->radius";
     }
 }
 $shape = new shape(4,4);
