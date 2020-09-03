@@ -6,7 +6,7 @@ class course{
     private $name; 
     private $description;
     private static $connection;
-    private $instructorID;
+    private $instructorId;
     
 
 
@@ -20,6 +20,10 @@ class course{
     public function setConnection(){
         global $connection;
         self::$connection = $connection;
+    }
+    public function setInstructorId($instructorId)
+    {
+        $this->instructorId=$instructorId;
     }
     public function getCourseID()
     {
@@ -47,7 +51,7 @@ class course{
      public function all() {
         self::setConnection();
         
-        $sql = "SELECT * FROM instructors";
+        $sql = "SELECT * FROM courses";
 
         $smt = self::$connection->prepare($sql);
 
@@ -58,11 +62,11 @@ class course{
     }
     public function store()
     {
-        $sql = 'INSERT into `courses` (course_name,description,instructor_id) VALUES (:course_name,:description,:instructor_id)';
+        $sql = 'INSERT into `courses` (course_name,description,instructor_id) VALUES (:name,:description,:instructor_id)';
         $data = [
-            'course_name'=>$this->name,
+            'name'=>$this->name,
             'description'=>$this->description,
-            'instructor_id'=>$this->instructorID
+            'instructor_id'=>$this->instructorId
         ];   
         $smt= self::$connection->prepare($sql);
         $smt->execute($data);
