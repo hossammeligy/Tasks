@@ -2,20 +2,22 @@
 
 class Instructor {
 
-    private $id;
+    ##################Attributes##################   
+    private $id; #read-only#
     private $firstName;
     private $lastName;
     private $email;
     private $phone;
     private $occupation;
     private $position;
-    private static $connection;
+    private static $connection; #write-only#
+
 
     public function __construct() {
         global $connection;
         self::$connection = $connection;
     }
-
+    ##################Setter&Getter######################
     private static function setConnection() {
         global $connection;
         self::$connection = $connection;
@@ -32,13 +34,11 @@ class Instructor {
     public function setFirstName($firstName) {
         $this->firstName = $firstName;
     }
-
-    public function getLastName() {
-        return $this->lastName;
-    }
-
     public function setLastName($lastName) {
         $this->lastName = $lastName;
+    }
+    public function getLastName() {
+        return $this->lastName;
     }
 
     public function getEmail() {
@@ -73,6 +73,8 @@ class Instructor {
     public function setPosition($position) {
         $this->position = $position;
     }
+
+    #################Connection Functions################## 
 
     public function all() {
         self::setConnection();

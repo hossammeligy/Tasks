@@ -1,14 +1,16 @@
 <?php
 class subject{
-    private $id;
+    
+    ##################Setter&Getter##################
+    private $id; #read-only#
     private $subjectName;
-    private static $connection;
+    private static $connection; #write-only#
    
     public function __construct() {
         global $connection;
         self::$connection = $connection;
     }
-
+    ##################Setter&Getter######################
 
     public function setConnection()
     {
@@ -16,9 +18,9 @@ class subject{
         self::$connection = $connection;
     }
 
-    public function setSubjectName($subject)
+    public function setSubjectName($subjectName)
     {
-        $subjectName= $this->subjectName;
+        $this->subjectName= $subjectName;
     }
 
     public function getSubjectName()
@@ -29,10 +31,12 @@ class subject{
     {
         return $this->id;
     }
+
+    #################Connection Functions################## 
     public function all() {
         self::setConnection();
         
-        $sql = "SELECT * FROM subjects";
+        $sql = "SELECT * FROM subject";
 
         $smt = self::$connection->prepare($sql);
 
@@ -45,15 +49,16 @@ class subject{
         $sql = 'INSERT into `subjects` (_name) VALUES (:_name)';
 
         $data = [
-           
-            '_name'=>$this->subjectName
-        ];
 
+            '_name' => $this->subjectName
+        ];
+        var_dump($data);
+   
         $smt = self::$connection->prepare($sql);
         $smt->execute($data);
 
         return self::$connection->lastInsertId();
-var_dump($data);
+        
     }
 
 

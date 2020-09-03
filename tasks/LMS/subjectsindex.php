@@ -4,11 +4,10 @@ require_once('./models/subject.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = new subject();
-    $subject->setSubjectName($_POST['subjectname']);
+    $subject->setSubjectName($_POST['subjectname']); 
     $subject->store();
 }
     $subjects = subject::all();
-    
     ?>
 
     <html>
@@ -46,6 +45,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </body>
         
     </html>
-   <?php
-   var_dump($subjects);
-   ?>
