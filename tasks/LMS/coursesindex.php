@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $course->setName($_POST['coursename']);
     $course->setDescription($_POST['description']);
-    $course->setInstructorId($_POST['instructorId']);
+    $course->setInstructorId($_POST['instructorid']);
     $course->store();
     
     
@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $instructors = Instructor::all();
     $courses = course::all();
-    var_dump($courses);
+    
+    
 ?>
 
 <html>
@@ -33,16 +34,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             <br>
             <br>
             <label> Instructor name:</label>
-            <select>
+            <select name="instructorid">
                 <?php
+                $value;
                 foreach($instructors as $instructor){
                    ?>
-                    <option value= <?="$instructor->id"?> name="instructorId"><?=$instructor->first_name," ",$instructor->last_name?></option>
+                   
+                    <option value =<?="$instructor->id"?>> <?=$instructor->first_name," ",$instructor->last_name?></option>
                  <?php   
                 }
                 ?>
             </select>
-            <br>    
+            <br>        
             <br>
             <button type="submit">Submit</button>
 

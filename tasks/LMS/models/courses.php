@@ -70,7 +70,7 @@ class course{
         ];   
         $smt= self::$connection->prepare($sql);
         $smt->execute($data);
-        var_dump($data);
+       
         return self::$connection->lastInsertId();
 
     }
